@@ -18,8 +18,11 @@
 	</bean>
 	
 	<bean id="triangle" class="com.test.Triangle">
-		<property name="pointA" ref="pointA"></property>
-		<property name="pointB" ref="pointB"></property>
-		<property name="pointC" ref="pointC"></property>
+<!-- 		<property name="pointA" ref="pointA"></property> -->
+<!-- 		<property name="pointB" ref="pointB"></property> -->
+<!-- 		<property name="pointC" ref="pointC"></property> -->
 	</bean>
+	
+	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+	<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"></bean>
 </beans>

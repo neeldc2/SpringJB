@@ -2,6 +2,8 @@ package com.test;
 
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Required;
 
 public class Triangle implements InitializingBean, DisposableBean {
 	
@@ -12,18 +14,27 @@ public class Triangle implements InitializingBean, DisposableBean {
 	public Point getPointA() {
 		return pointA;
 	}
+	
+	@Autowired
 	public void setPointA(Point pointA) {
 		this.pointA = pointA;
 	}
+	
 	public Point getPointB() {
 		return pointB;
 	}
+	
+	@Autowired
 	public void setPointB(Point pointB) {
 		this.pointB = pointB;
 	}
+	
 	public Point getPointC() {
 		return pointC;
 	}
+	
+	@Autowired
+	@Required
 	public void setPointC(Point pointC) {
 		this.pointC = pointC;
 	}

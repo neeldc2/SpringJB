@@ -1,2 +1,2 @@
 # SpringJB
-This example shows how to implement InitializingBean and DisposableBean
+This example shows how to use Annotations @Required and @AutoWire
