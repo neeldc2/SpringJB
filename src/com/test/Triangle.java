@@ -1,14 +1,18 @@
 package com.test;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.context.ApplicationEventPublisherAware;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Triangle {
+public class Triangle implements ApplicationEventPublisherAware{
 	
 	private Point pointA;
 	private Point pointB;
 	private Point pointC;
+	
+	private ApplicationEventPublisher publisher;
 	
 	public Point getPointA() {
 		return pointA;
@@ -39,6 +43,13 @@ public class Triangle {
 	
 	public void draw() {
 		System.out.println(pointA.getX() + " : " + pointB.getX() + " : " + pointC.getX());
+		DrawEvent event = new DrawEvent(this);
+		publisher.publishEvent(event);
+	}
+
+	@Override
+	public void setApplicationEventPublisher(ApplicationEventPublisher publisher) {
+		this.publisher = publisher;
 	}
 
 }
