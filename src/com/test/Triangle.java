@@ -1,7 +1,9 @@
 package com.test;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Triangle {
 	
 	private Point pointA;
@@ -12,6 +14,7 @@ public class Triangle {
 		return pointA;
 	}
 	
+	@Autowired
 	public void setPointA(Point pointA) {
 		this.pointA = pointA;
 	}
@@ -20,6 +23,7 @@ public class Triangle {
 		return pointB;
 	}
 	
+	@Autowired
 	public void setPointB(Point pointB) {
 		this.pointB = pointB;
 	}
@@ -28,7 +32,7 @@ public class Triangle {
 		return pointC;
 	}
 	
-	@Resource(name="pointC")
+	@Autowired
 	public void setPointC(Point pointC) {
 		this.pointC = pointC;
 	}
