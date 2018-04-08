@@ -1,11 +1,8 @@
 package com.test;
 
-import org.springframework.beans.factory.DisposableBean;
-import org.springframework.beans.factory.InitializingBean;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
+import javax.annotation.Resource;
 
-public class Triangle implements InitializingBean, DisposableBean {
+public class Triangle {
 	
 	private Point pointA;
 	private Point pointB;
@@ -15,7 +12,6 @@ public class Triangle implements InitializingBean, DisposableBean {
 		return pointA;
 	}
 	
-	@Autowired
 	public void setPointA(Point pointA) {
 		this.pointA = pointA;
 	}
@@ -24,7 +20,6 @@ public class Triangle implements InitializingBean, DisposableBean {
 		return pointB;
 	}
 	
-	@Autowired
 	public void setPointB(Point pointB) {
 		this.pointB = pointB;
 	}
@@ -33,23 +28,13 @@ public class Triangle implements InitializingBean, DisposableBean {
 		return pointC;
 	}
 	
-	@Autowired
-	@Required
+	@Resource(name="pointC")
 	public void setPointC(Point pointC) {
 		this.pointC = pointC;
 	}
 	
 	public void draw() {
 		System.out.println(pointA.getX() + " : " + pointB.getX() + " : " + pointC.getX());
-	}
-	
-	@Override
-	public void afterPropertiesSet() throws Exception {
-		System.out.println("InitializingBean init method called");
-	}
-	@Override
-	public void destroy() throws Exception {
-		System.out.println("Clean up code can be placed here");
 	}
 
 }
